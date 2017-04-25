@@ -1,0 +1,8 @@
+{
+    "coinmarketcap": {
+        "api_url":  "https://api.coinmarketcap.com/v1",
+        "httpclient_timeout_sec": 20,
+        "max_requests_min": 9,
+        "log_level": "debug"
+    }
+}
