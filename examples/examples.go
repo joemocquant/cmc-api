@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
-	"trading/coinmarketcap"
+	"trading/api/coinmarketcap"
 )
 
 var client *coinmarketcap.Client

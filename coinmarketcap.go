@@ -29,10 +29,10 @@ type Client struct {
 }
 
 type configuration struct {
-	CoinmarketcapConf `json:"coinmarketcap"`
+	apiConf `json:"coinmarketcap_api"`
 }
 
-type CoinmarketcapConf struct {
+type apiConf struct {
 	APIUrl               string `json:"api_url"`
 	HTTPClientTimeoutSec int    `json:"httpclient_timeout_sec"`
 	MaxRequestsMin       int    `json:"max_requests_min"`
@@ -45,7 +45,7 @@ func init() {
 	customFormatter.FullTimestamp = true
 	logrus.SetFormatter(customFormatter)
 
-	logger = logrus.WithField("context", "[coinmarketcap]")
+	logger = logrus.WithField("context", "[api:coinmarketcap]")
 
 	content, err := ioutil.ReadFile("conf.json")
 
