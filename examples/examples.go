@@ -1,9 +1,10 @@
 package main
 
 import (
+	"encoding/json"
+	"fmt"
 	"log"
 	"trading/coinmarketcap"
-	"trading/poloniex"
 )
 
 var client *coinmarketcap.Client
@@ -19,6 +20,17 @@ func main() {
 	printGlobalData()
 }
 
+func prettyPrintJson(msg interface{}) {
+
+	jsonstr, err := json.MarshalIndent(msg, "", "  ")
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Printf("%s\n", string(jsonstr))
+}
+
 func printTickers() {
 
 	res, err := client.GetTickers()
@@ -27,7 +39,7 @@ func printTickers() {
 		log.Fatal(err)
 	}
 
-	poloniex.PrettyPrintJson(res)
+	prettyPrintJson(res)
 }
 
 func printTickersLimit() {
@@ -38,7 +50,7 @@ func printTickersLimit() {
 		log.Fatal(err)
 	}
 
-	poloniex.PrettyPrintJson(res)
+	prettyPrintJson(res)
 }
 
 func printTicker() {
@@ -49,7 +61,7 @@ func printTicker() {
 		log.Fatal(err)
 	}
 
-	poloniex.PrettyPrintJson(res)
+	prettyPrintJson(res)
 }
 
 func printGlobalData() {
@@ -60,5 +72,5 @@ func printGlobalData() {
 		log.Fatal(err)
 	}
 
-	poloniex.PrettyPrintJson(res)
+	prettyPrintJson(res)
 }
