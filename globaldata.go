@@ -27,6 +27,7 @@ type GlobalData struct {
 // Example: https://api.coinmarketcap.com/v1/global/?convert=EUR
 //
 // Sample Response:
+//
 //  {
 //    "total_market_cap_usd": 12756692479.0,
 //    "total_24h_volume_usd": 135078435.0,

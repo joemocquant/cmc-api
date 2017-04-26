@@ -94,8 +94,8 @@ func (c *Client) do(endpoint string, params map[string]string) ([]byte, error) {
 
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
-		return nil, fmt.Errorf("http.NewRequest: %v (API command: %s)",
-			err, params["command"])
+		return nil, fmt.Errorf("http.NewRequest: %v (API endpoint: %s)",
+			err, endpoint)
 	}
 
 	req.Header.Add("Accept", "application/json")
