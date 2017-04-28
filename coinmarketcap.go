@@ -137,12 +137,16 @@ func (c *Client) do(endpoint string, params map[string]string) ([]byte, error) {
 
 func buildUrl(endpoint string, params map[string]string) string {
 
-	u := conf.APIUrl + "/" + endpoint + "?"
+	u := conf.APIUrl + "/" + endpoint
 
 	var parameters []string
 	for k, v := range params {
 		parameters = append(parameters, k+"="+url.QueryEscape(v))
 	}
 
-	return u + strings.Join(parameters, "&")
+	if len(parameters) > 0 {
+		return u + "?" + strings.Join(parameters, "&")
+	}
+
+	return u
 }
