@@ -4,7 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
-	"trading/api/coinmarketcap"
+
+	coinmarketcap "github.com/joemocquant/cmc-api"
 )
 
 var client *coinmarketcap.Client
